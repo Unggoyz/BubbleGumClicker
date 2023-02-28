@@ -9,6 +9,7 @@ _G.spottedegg = true
 _G.safeegg = true
 _G.magmaegg = true
 _G.frostedegg = true
+_G.nightmareegg = true
 --Functions
 function autobubble()
 	while _G.autobubble == true do
@@ -136,6 +137,24 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy e
 wait(5)
 	end
 end
+
+function nightmareegg()
+	while _G.nightmareegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Nightmare Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
 --Tabs
 local MainTab = Window:MakeTab({
 	Name = "Main",
@@ -228,6 +247,15 @@ EggsTab:AddToggle({
 	Callback = function(Value)
 		_G.frostedegg = Value
 		frostedegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "NightmareEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.nightmareegg = Value
+		nightmareegg()
 	end     
 })
 --Notification
