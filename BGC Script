@@ -148,6 +148,11 @@ local EggsTab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+local Section = MainTab:AddSection({
+	Name = "Auto Farm"
+})
+
 -- Toggles
 MainTab:AddToggle({
 	Name = "AutoBubble",
@@ -180,10 +185,6 @@ local Section = EggsTab:AddSection({
 local Section = CreditTab:AddSection({
 	Name = "Credit- Unggoy#3120"
 })
-
---[[
-Name = <string> - The name of the section.
-]]
 
 EggsTab:AddToggle({
 	Name = "CommonEgg",
