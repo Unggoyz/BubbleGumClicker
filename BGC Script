@@ -1,0 +1,227 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "UnggoyzHub", HidePremium = false, IntroText = "BubbleGumCliker", SaveConfig = true, ConfigFolder = "Config"})
+
+--Values
+_G.autobubble = true
+_G.autosell = true
+_G.commonegg = true
+_G.spottedegg = true
+_G.safeegg = true
+_G.magmaegg = true
+_G.frostedegg = true
+--Functions
+function autobubble()
+	while _G.autobubble == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = false
+        },
+        [2] = {
+            [1] = 2
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("blow bubble"):FireServer(unpack(args))
+
+wait()
+	end
+end
+
+function autosell()
+	while _G.autosell == true do 
+		local args = {
+    [1] = {
+        [1] = {
+            [1] = false
+        },
+        [2] = {
+            [1] = 2
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("sell bubbles"):FireServer(unpack(args))
+wait()
+	end
+end
+
+function commonegg()
+	while _G.commonegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Common Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
+
+function spottedegg()
+	while _G.spottedegg == true do 
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Spotted Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
+
+function safeegg()
+	while _G.safeegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Safe Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
+
+function magmaegg()
+	while _G.magmaegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Magma Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
+
+function frostedegg()
+	while _G.frostedegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Frosted Egg"
+        },
+        [2] = {
+            [1] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+wait(5)
+	end
+end
+--Tabs
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local EggsTab = Window:MakeTab({
+	Name = "Eggs",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+-- Toggles
+MainTab:AddToggle({
+	Name = "AutoBubble",
+	Default = false,
+	Callback = function(Value)
+		_G.autobubble = Value
+		autobubble()
+	end     
+})
+
+MainTab:AddToggle({
+	Name = "AutoSell",
+	Default = false,
+	Callback = function(Value)
+		_G.autosell = Value
+		autosell()
+	end     
+})
+--Selection
+local Section = EggsTab:AddSection({
+	Name = "Auto Buy Eggs"
+})
+
+EggsTab:AddToggle({
+	Name = "CommonEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.commonegg = Value
+		commonegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "SpottedEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.spottedegg = Value
+		spottedegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "SafeEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.safeegg = Value
+		safeegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "MagmaEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.magmaegg = Value
+		magmaegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "FrostedEgg",
+	Default = false,
+	Callback = function(Value)
+		_G.frostedegg = Value
+		frostedegg()
+	end     
+})
+--Notification
+OrionLib:MakeNotification({
+	Name = "AUTOSELL, AUTOBUY - IMPORTANT",
+	Content = "!!!!!!!!!!!!You must be near the area for it to work!!!!!!!!!!!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+
+OrionLib:Init()
