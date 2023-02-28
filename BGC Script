@@ -166,10 +166,24 @@ MainTab:AddToggle({
 		autosell()
 	end     
 })
+
+local CreditTab = Window:MakeTab({
+	Name = "Credit",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 --Selection
 local Section = EggsTab:AddSection({
 	Name = "Auto Buy Eggs"
 })
+
+local Section = CreditTab:AddSection({
+	Name = "Credit- Unggoy#3120"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
 
 EggsTab:AddToggle({
 	Name = "CommonEgg",
