@@ -10,6 +10,8 @@ _G.safeegg = true
 _G.magmaegg = true
 _G.frostedegg = true
 _G.nightmareegg = true
+_G.bananaegg = true
+_G.safetyegg = true
 --Functions
 function autobubble()
 	while _G.autobubble == true do
@@ -53,10 +55,12 @@ function commonegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Common Egg"
+            [1] = "Common Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
@@ -71,10 +75,12 @@ function spottedegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Spotted Egg"
+            [1] = "Spotted Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
@@ -89,16 +95,18 @@ function safeegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Safe Egg"
+            [1] = "Safe Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
-wait(5)
+	wait(5)
 	end
 end
 
@@ -107,16 +115,18 @@ function magmaegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Magma Egg"
+            [1] = "Magma Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
-wait(5)
+	wait(5)
 	end
 end
 
@@ -125,16 +135,18 @@ function frostedegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Frosted Egg"
+            [1] = "Frosted Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
-wait(5)
+	wait(5)
 	end
 end
 
@@ -143,35 +155,112 @@ function nightmareegg()
 	local args = {
     [1] = {
         [1] = {
-            [1] = "Nightmare Egg"
+            [1] = "Nightmare Egg",
+            [2] = 1
         },
         [2] = {
-            [1] = false
+            [1] = false,
+            [2] = false
         }
     }
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
-wait(5)
+	wait(5)
 	end
 end
+
+function bananaegg()
+	while _G.bananaegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Banana Bandana on Nana Egg",
+            [2] = 1
+        },
+        [2] = {
+            [1] = false,
+            [2] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+	wait(5)
+	end
+end
+
+function safetyegg()
+	while _G.safetyegg == true do
+	local args = {
+    [1] = {
+        [1] = {
+            [1] = "Safety Egg",
+            [2] = 1
+        },
+        [2] = {
+            [1] = false,
+            [2] = false
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("buy egg"):InvokeServer(unpack(args))
+	wait(5)
+	end
+end
+	
+function TP(teleportPlace)
+	local player = game.Players.LocalPlayer
+	player.Character.HumanoidRootPart.CFrame = teleportPlace
+end
+	
+--getgenv.
+getgenv().TPPlace = "string"
+
+getgenv().Eggs = "string"
+
 --Tabs
 local MainTab = Window:MakeTab({
 	Name = "Main",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://9792650361",
 	PremiumOnly = false
 })
 
 local EggsTab = Window:MakeTab({
 	Name = "Eggs",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://9792634811",
 	PremiumOnly = false
 })
 
-local Section = MainTab:AddSection({
-	Name = "Auto Farm"
+local TeleportTab = Window:MakeTab({
+	Name = "Teleports",
+	Icon = "rbxassetid://9792631906",
+	PremiumOnly = false
 })
 
+local CreditTab = Window:MakeTab({
+	Name = "Credit",
+	Icon = "rbxassetid://9792634075",
+	PremiumOnly = false
+})
+
+--sections
+local Section = MainTab:AddSection({
+	Name = "Auto Farm - Must be close to sell"
+})
+
+local Section = EggsTab:AddSection({
+	Name = "Auto Buy Eggs - Must be close to buy"
+})
+
+local Section = TeleportTab:AddSection({
+	Name = "Teleports"
+})
+
+local Section = CreditTab:AddSection({
+	Name = "Credit- Unggoy#3120"
+})
 -- Toggles
 MainTab:AddToggle({
 	Name = "AutoBubble",
@@ -191,22 +280,8 @@ MainTab:AddToggle({
 	end     
 })
 
-local CreditTab = Window:MakeTab({
-	Name = "Credit",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
---Selection
-local Section = EggsTab:AddSection({
-	Name = "Auto Buy Eggs"
-})
-
-local Section = CreditTab:AddSection({
-	Name = "Credit- Unggoy#3120"
-})
-
 EggsTab:AddToggle({
-	Name = "CommonEgg",
+	Name = "Common Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.commonegg = Value
@@ -215,7 +290,7 @@ EggsTab:AddToggle({
 })
 
 EggsTab:AddToggle({
-	Name = "SpottedEgg",
+	Name = "Spotted Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.spottedegg = Value
@@ -224,7 +299,7 @@ EggsTab:AddToggle({
 })
 
 EggsTab:AddToggle({
-	Name = "SafeEgg",
+	Name = "Safe Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.safeegg = Value
@@ -233,7 +308,7 @@ EggsTab:AddToggle({
 })
 
 EggsTab:AddToggle({
-	Name = "MagmaEgg",
+	Name = "Magma Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.magmaegg = Value
@@ -242,7 +317,7 @@ EggsTab:AddToggle({
 })
 
 EggsTab:AddToggle({
-	Name = "FrostedEgg",
+	Name = "Frosted Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.frostedegg = Value
@@ -251,12 +326,71 @@ EggsTab:AddToggle({
 })
 
 EggsTab:AddToggle({
-	Name = "NightmareEgg",
+	Name = "Nightmare Egg",
 	Default = false,
 	Callback = function(Value)
 		_G.nightmareegg = Value
 		nightmareegg()
 	end     
+})
+
+EggsTab:AddToggle({
+	Name = "Bandana Egg",
+	Default = false,
+	Callback = function(Value)
+		_G.bananaegg = Value
+		bananaegg()
+	end     
+})
+
+EggsTab:AddToggle({
+	Name = "Safety Egg",
+	Default = false,
+	Callback = function(Value)
+		_G.safetyegg = Value
+		safetyegg()
+	end     
+})
+
+--dropdown
+TeleportTab:AddDropdown({
+	Name = "Teleport Places",
+	Default = "Spawn",
+	Options = {"Spawn", "Sky Island", "Lucky", "Heaven", "Space", "Void", "Fairy", "XP Island"},
+	Callback = function(Value)
+		getgenv().TPPlace = Value
+	end    
+})
+
+--buttons
+TeleportTab:AddButton({
+	Name = "Teleport",
+	Callback = function()
+		if getgenv().TPPlace == "Spawn" then
+      		TP(game:GetService("Workspace").MAP.Teleports.Spawn.CFrame)
+      	elseif getgenv().TPPlace == "Sky Island" then
+      	TP(game:GetService("Workspace").MAP.Teleports["Sky Island"].CFrame)
+      	elseif getgenv().TPPlace == "Lucky" then
+      	TP(game:GetService("Workspace").MAP.Teleports["Lucky Landing"].CFrame)
+      	elseif getgenv().TPPlace == "Heaven" then
+      	TP(game:GetService("Workspace").MAP.Teleports.Heaven.CFrame)
+      	elseif getgenv().TPPlace == "Space" then
+      	TP(game:GetService("Workspace").MAP.Teleports.Space.CFrame)
+      	elseif getgenv().TPPlace == "Void" then
+      	TP(game:GetService("Workspace").MAP.Teleports["The Void"].CFrame)
+      	elseif getgenv().TPPlace == "Fairy" then
+      	TP(game:GetService("Workspace").MAP.Teleports["Fairy World"].CFrame)
+      	elseif getgenv().TPPlace == "XP Island" then
+      	TP(game:GetService("Workspace").MAP.Teleports["XP Island"].CFrame)
+      	end
+  	end    
+})
+
+CreditTab:AddButton({
+	Name = "Destroy UI",
+	Callback = function()
+		OrionLib:Destroy()
+	end
 })
 --Notification
 OrionLib:MakeNotification({
